@@ -244,10 +244,17 @@ angular.module('starter.controllers', [])
 
 ![screenshot3](http://fs5.directupload.net/images/160222/m5heu6xg.png)
 
+##License:
+[MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
+
 ## Contact
 
-Don't hesitate to get in touch with me if you have questions or suggestions for this plugin. 
+Please contact me if you have questions or suggestions to this plugin. 
 
 * gmail : i.weber1983@gmail.com
 * twitter : https://twitter.com/_ivanweber_
 * paypal : ivan.weber@gmx.de
+
+## Support this project
+
+This software package is available for free with a MIT license. If you find it useful and would like to support its development consider buying a copy on the [Ionic Marketplace](https://market.ionic.io/plugins/ionic-letter-avatar-selector) for just a few bucks.
