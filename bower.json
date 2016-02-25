@@ -1,0 +1,24 @@
+{
+  "name": "ionic-letter-avatar-selector",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Ivan Weber",
+      "email": "ivan.weber@gmx.de"
+    }
+  ],
+  "main": ["dist/ionic-letter-avatar-selector.js"],
+  "ignore": [
+    "src",
+    "test",
+    "gulpfile.js",
+    "karma-*.conf.js",
+    "**/.*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": ">=1.2.0",
+    "angular-scenario": ">=1.2.0",
+    "angular": ">=1.2.0"
+  }
+}

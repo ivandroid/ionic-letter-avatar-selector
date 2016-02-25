@@ -1,0 +1,31 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "Ivan Weber",
+        "email": "ivan.weber@gmx.de"
+      },
+      "libraryName": {
+        "original": "ionic-letter-avatar-selector",
+        "camelized": "ionicLetterAvatarSelector",
+        "dasherized": "ionic-letter-avatar-selector",
+        "slugified": "ionic-letter-avatar-selector",
+        "parts": [
+          "ionic",
+          "letter",
+          "avatar",
+          "selector"
+        ]
+      },
+      "includeModuleDirectives": false,
+      "includeModuleFilters": false,
+      "includeModuleServices": false,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/ionic-letter-avatar-selector",
+      "libraryUnitTestDirectory": "test/unit/ionic-letter-avatar-selector",
+      "libraryUnitE2eDirectory": "test/e2e/ionic-letter-avatar-selector"
+    }
+  }
+}
