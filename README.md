@@ -18,10 +18,11 @@ Get the files from github or install from bower:
 ```
 bower install ionic-letter-avatar-selector
 ```
+Put the following files into your `index.html` file.
 
 ```html
-<link href="../ionic-letter-avatar-selector.min.css" rel="stylesheet">
-<script src="../ionic-letter-avatar-selector.min.js"></script>
+<link href="style/css/ionic-letter-avatar-selector.min.css" rel="stylesheet">
+<script src="dist/ionic-letter-avatar-selector.min.js"></script>
 ```
 
 Add the module `ionicLetterAvatarSelector` to your application dependencies:
