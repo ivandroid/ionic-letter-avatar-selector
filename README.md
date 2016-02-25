@@ -251,10 +251,5 @@ angular.module('starter.controllers', [])
 
 Please contact me if you have questions or suggestions to this plugin. 
 
-* gmail : i.weber1983@gmail.com
+* email : ivan.weber@gmx.de
 * twitter : https://twitter.com/_ivanweber_
-* paypal : ivan.weber@gmx.de
-
-## Support this project
-
-This software package is available for free with a MIT license. If you find it useful and would like to support its development consider buying a copy on the [Ionic Marketplace](https://market.ionic.io/plugins/ionic-letter-avatar-selector) for just a few bucks.
