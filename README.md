@@ -1,3 +1,6 @@
+There will be more interesting plugins of mine soon! Follow me on [twitter](https://twitter.com/_ivandroid_)!
+If you would like to support the development of this plugin, you can purchase it for just [one buck](https://gum.co/rBRAr).
+
 # ionic-letter-avatar-selector  
 
 This plugin provides letter avatars for list items and multiple list item selection similar to android gmail app. 
