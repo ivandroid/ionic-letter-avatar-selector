@@ -14,6 +14,10 @@ var jshint = require('gulp-jshint');
  * File patterns
  **/
 
+// Test project directory
+var testProjectDirectory1 = '/home/ivan/NetBeansProjects/com.successful.bablo/www';
+var testProjectDirectory2 = '/home/ivan/NetBeansProjects/app_ionicletteravatarselector/www';
+
 // Root directory
 var rootDirectory = path.resolve('./');
 
@@ -43,7 +47,9 @@ gulp.task('build', function() {
         .pipe(gulp.dest('./dist/'))
         .pipe(uglify())
         .pipe(rename('ionic-letter-avatar-selector.min.js'))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest(testProjectDirectory1 + '/lib/own'))
+        .pipe(gulp.dest(testProjectDirectory2 + '/lib/other'));
 });
 
 gulp.task('sass', function(done) {
@@ -56,6 +62,8 @@ gulp.task('sass', function(done) {
         }))
         .pipe(rename({extname: '.min.css'}))
         .pipe(gulp.dest('./style/css/'))
+        .pipe(gulp.dest(testProjectDirectory1 + '/css'))
+        .pipe(gulp.dest(testProjectDirectory2 + '/css'))
         .on('end', done);
 });
 

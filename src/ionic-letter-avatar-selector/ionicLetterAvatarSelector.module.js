@@ -1,3 +1,14 @@
+/*!
+ * Copyright 2016 Ivan Weber
+ *
+ * ionic-letter-avatar-selector, v1.0.1
+ *
+ * By @_ivandroid_
+ *
+ * Licensed under the MIT license. Please see LICENSE for more information.
+ *
+ */
+
 /* global ionic */
 
 (function (angular) {
@@ -333,7 +344,7 @@
         });
         
     angular.module("ionicLetterAvatarSelector.directives", [])
-        .directive("ionicLetterAvatarSelectorButtonDelete", [
+        .directive("ilasButtonDelete", [
             "$ionicLetterAvatarSelector",
             "$ionicLetterAvatarSelectorConfig",
             "IONIC_LETTER_AVATAR_SELECTOR_ICONS", function(
@@ -360,7 +371,7 @@
                 }
             };
         }])
-        .directive("ionicLetterAvatarSelectorButtonFinish", [
+        .directive("ilasButtonFinish", [
             "$ionicLetterAvatarSelector",
             "$ionicLetterAvatarSelectorConfig",
             "IONIC_LETTER_AVATAR_SELECTOR_ICONS", function(

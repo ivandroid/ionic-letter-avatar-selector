@@ -127,7 +127,7 @@ attribute|description|accepted values|default value
 
 ![screenshot2](http://fs5.directupload.net/images/160222/z72w4mqz.png)
 
-### Directive `ionic-letter-avatar-selector-button-finish`
+### Directive `ilas-button-finish`
 
 You can use this directive to show / hide a button for finishing item selection. The default icons for iOS and Android are `ion-checkmark-empty` and `ion-android-arrow-back`.
 
@@ -137,13 +137,12 @@ You can use this directive to show / hide a button for finishing item selection.
 <ion-nav-bar class="bar-positive">
     <ion-nav-back-button></ion-nav-back-button>
     <ion-nav-buttons side="left">
-        <ionic-letter-avatar-selector-button-finish>
-        </ionic-letter-avatar-selector-button-finish>
+        <ilas-button-finish></ilas-button-finish>
     </ion-nav-buttons>    
 </ion-nav-bar>
 ```
 
-### Directive `ionic-letter-avatar-selector-button-delete`
+### Directive `ilas-button-delete`
 
 This directive shows / hides a button for deleting selected items. The default icons for iOS and Android are `ion-ios-trash` and `ion-android-delete`.
 Using `ng-click` attribute you can invoke your specific delete function considering the following actions: 
@@ -157,8 +156,7 @@ Using `ng-click` attribute you can invoke your specific delete function consider
 ```html
 <ion-view view-title="Chats">
     <ion-nav-buttons side="right">
-        <ionic-letter-avatar-selector-button-delete ng-click="delete()">
-        </ionic-letter-avatar-selector-button-delete>
+        <ilas-button-delete ng-click="delete()"></ilas-button-delete>
     </ion-nav-buttons>  
 </ion-view>
 ```
