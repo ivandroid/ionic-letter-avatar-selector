@@ -17,7 +17,7 @@ It can be integrated in your ionic 1.x app using the `ion-item` directive.
 
 
 ## Quick start 
-Get the files from github or install from bower:
+Get the files from here or install from bower:
 ```
 bower install ionic-letter-avatar-selector
 ```
@@ -123,7 +123,7 @@ attribute|description|accepted values|default value
 `background`|Background color of letter avatars|hex color codes, ionic color names (e.g. 'positive') and 'random' for random colors|positive
 `color`|Foreground color of letter avatars (text color)|hex color codes and ionic color names|light
 `border`|Border of letter avatars|css code|none
-`letters`|Number of letters to show|1-n|the default letter number is detected depending on word number in a given string
+`letters`|Number of letters to show|1-n|the default letter number is detected depending on the word number in a given string
 
 #### Example
 ##### Code
