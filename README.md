@@ -277,4 +277,4 @@ angular.module('starter.controllers', [])
 Please contact me if you have questions or suggestions to this plugin. 
 
 * email : ivan.weber@gmx.de
-* twitter : https://twitter.com/_ivanweber_
+* twitter : https://twitter.com/_ivandroid_
