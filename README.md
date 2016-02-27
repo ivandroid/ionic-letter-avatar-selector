@@ -34,12 +34,7 @@ Add the module `ionicLetterAvatarSelector` to your application dependencies:
 angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 ```
 
-Add the following attributes to the `ion-item` directive of your list items:
-
-attribute|description
----|---|---
-`letters-of`|String value from which the first letter(s) will be used for building a letter avatar
-`item`|Corresponding list item identifier which will be cached during selection
+Add the attributes `letters-of` and `item` to the `ion-item` directive of your list items:
 
 #### Example
 
@@ -55,6 +50,8 @@ attribute|description
     </ion-item>
 </ion-list>
 ```
+
+Get selected items invoking the `getData()` method of the `$ionicLetterAvatarSelector` service.
 
 Done!
 
