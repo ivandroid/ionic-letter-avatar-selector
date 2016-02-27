@@ -250,6 +250,9 @@ angular.module('starter.controllers', [])
 ##License:
 [MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
 
+##Versions:
+[CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
+
 ## Contact
 
 Please contact me if you have questions or suggestions to this plugin. 
