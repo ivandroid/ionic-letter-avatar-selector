@@ -16,7 +16,7 @@ It can be integrated in your ionic 1.x app using the `ion-item` directive.
 * two buttons for finishing a selection and deleting selected items
 
 
-## Usage 
+## Quick start 
 Get the files from github or install from bower:
 ```
 bower install ionic-letter-avatar-selector
@@ -32,6 +32,28 @@ Add the module `ionicLetterAvatarSelector` to your application dependencies:
 
 ```javascript
 angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
+```
+
+Add the following attributes to the `ion-item` directive of your list items:
+
+attribute|description
+---|---|---
+`letters-of`|String value from which the first letter(s) will be used for building a letter avatar
+`item`|Corresponding list item identifier which will be cached during selection
+
+#### Example
+
+```html
+<ion-list>
+    <ion-item letters-of="{{chat.name}}"
+              item="{{chat.id}}"
+              href="#/tab/chats/{{chat.id}}"
+              ng-repeat="chat in chats">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+</ion-list>
 ```
 
 Done!
