@@ -4,7 +4,7 @@ If you would like to support the development of this plugin, you can purchase it
 # ionic-letter-avatar-selector  
 
 This plugin provides letter avatars for list items and multiple list item selection similar to android gmail app. 
-It can be integrated into your ionic 1.x app using the `ion-item` directive.
+It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection functionality is enabled on Android.
 
 ## Short demo  
 ![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
