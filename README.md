@@ -23,7 +23,7 @@ Get the files from here or install from bower:
 ```
 bower install ionic-letter-avatar-selector
 ```
-Put the javascript and css file or its minified versions into your `index.html` file.
+Put the javascript and css files or their minified versions into your `index.html` file.
 
 ```html
 <link href="style/css/ionic-letter-avatar-selector.min.css" rel="stylesheet">
