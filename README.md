@@ -10,8 +10,8 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 ![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
 
 ## Features 
-* letter avatars for ionic list items based on the `ionItem` directive
-* multiple selection and deselection of list items by clicking on a letter avatar or long clicking (1s) on a list item
+* letter avatars for ionic list items based on the `ion-item` directive
+* multiple selection and deselection of list items by clicking on a letter avatar or long clicking on a list item
 * retrieval of selected items
 * two buttons for finishing a selection and deleting selected items
 
