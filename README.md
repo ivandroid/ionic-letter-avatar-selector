@@ -6,7 +6,7 @@ If you find this plugin useful, you can purchase it for just [one buck](https://
 Ionic View ID: d5a27312
 
 This plugin provides letter avatars for list items and multiple list item selection similar to the Android gmail app. 
-It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection functionality is enabled on Android.
+It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection feature is enabled on Android.
 
 ## Short demo  
 ![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
@@ -36,7 +36,8 @@ Add the module `ionicLetterAvatarSelector` to your application dependencies:
 angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 ```
 
-Add the attributes `letters-of` and `item` to the `ion-item` directive of your list items:
+Add the attribute `letters-of` to the `ion-item` directive for using **only** the letter avatar feature.
+For using the item selection feature add the additional attribute `item` and pass an item identifier. 
 
 #### Example
 
@@ -53,9 +54,23 @@ Add the attributes `letters-of` and `item` to the `ion-item` directive of your l
 </ion-list>
 ```
 
-Get selected items invoking the `getData()` function of the `$ionicLetterAvatarSelector` service.
+Do what ever you want with your selected item identifiers invoking your function:
 
-Done!
+```javascript
+angular.module('starter.controllers', [])
+// Inject the $ionicLetterAvatarSelector service 
+.controller('YourCtrl', function($ionicLetterAvatarSelector, $scope) {
+    $scope.doSomething = function() {
+        //Get selected item identifiers 
+        var selectedIDs = $ionicLetterAvatarSelector.getData();
+        
+        //Do something with them...
+        
+        //Finish selection
+        $ionicLetterAvatarSelector.finish();
+    };
+})
+```
 
 ## Configuration provider
 
@@ -111,12 +126,16 @@ function|description
 ## Directives
 ### Extended directive `ion-item`
 
-Add the following mandatory attributes to the `ion-item` directive of your list items:
+Add the attribute `letters-of` and `item` to the `ion-item` directive of your list items:
 
 attribute|description
 ---|---|---
 `letters-of`|String value from which the first letter(s) will be used for building a letter avatar
 `item`|Corresponding list item identifier which will be cached during selection
+
+### Note
+
+Leave the `item` attribute out, if you don't want to use the item selection feature. 
 
 The attributes `background`, `color`, `border` and `letters` are optional and can be also set globally in the configuration phase:
 

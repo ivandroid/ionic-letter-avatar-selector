@@ -1,7 +1,7 @@
 /*!
  * Copyright 2016 Ivan Weber
  *
- * ionic-letter-avatar-selector, v1.0.1
+ * ionic-letter-avatar-selector, v1.0.2
  *
  * By @_ivandroid_
  *
@@ -72,7 +72,7 @@
                 } else {
                     $element.addClass("item");
                 }
-                var usePlugin = angular.isDefined($attrs.lettersOf) && angular.isDefined($attrs.item);
+                var usePlugin = angular.isDefined($attrs.lettersOf);
                 if (usePlugin) {
                     $element.addClass("item-avatar-left");
                     $element.addClass("item-icon-right");
@@ -106,7 +106,7 @@
                     }
 
                     if (usePlugin) {
-                        var selectionEnabled = $ionicLetterAvatarSelectorConfig.isIos || $ionicLetterAvatarSelectorConfig.isAndroid;
+                        var selectionEnabled = ($ionicLetterAvatarSelectorConfig.isIos || $ionicLetterAvatarSelectorConfig.isAndroid) && angular.isDefined($attrs.item);
                         var gesture = $ionicGesture.on("hold", onHold, $element);
                         var imgDefault = svg(false, $attrs.lettersOf, $attrs.letters, $attrs.background, $attrs.color);
                         var imgChecked = selectionEnabled ? svg(true) : null;
