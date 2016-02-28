@@ -5,7 +5,7 @@ If you find this plugin useful, you can purchase it for just [one buck](https://
 
 Ionic View ID: d5a27312
 
-This plugin provides letter avatars for list items and multiple list item selection similar to android gmail app. 
+This plugin provides letter avatars for list items and multiple list item selection similar to Android gmail app. 
 It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection functionality is enabled on Android.
 
 ## Short demo  
