@@ -240,8 +240,8 @@ Instead of using this directives you can also add your own buttons and show / hi
 ```javascript
 angular.module('starter.controllers', [])
 .controller('ChatsCtrl',function($ionicLetterAvatarSelector, $scope, Chats) {
-    $scope.$on($ionicLetterAvatarSelector.stateChanged, function(state) {
-        $scope.selectionActive = state;
+    $scope.$on($ionicLetterAvatarSelector.stateChanged, function(selectionActive) {
+        $scope.selectionActive = selectionActive;
     });
     
     $scope.finish = $ionicLetterAvatarSelector.finish;
