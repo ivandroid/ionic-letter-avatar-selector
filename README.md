@@ -116,7 +116,7 @@ attribute|description
 `letters-of`|String value from which the first letter(s) will be used for building a letter avatar
 `item`|Corresponding list item identifier which will be cached during selection
 
-The following attributes are optional and can be also set globally in the configuration phase via configuration provider:
+The following attributes are optional and can be also set globally in the configuration phase:
 
 attribute|description|accepted values|default value
 ---|---|---|---|---
