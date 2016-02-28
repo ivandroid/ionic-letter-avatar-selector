@@ -97,8 +97,8 @@ Using this service you have access to the following events and functions:
 
 event|description|return-value
 ---|---|---|---
-`started`|Selection started event|
-`finished`|Selection finished event|
+`started`|Selection started event|'$ionicLetterAvatarSelector.started'
+`finished`|Selection finished event|'$ionicLetterAvatarSelector.finished'
 `stateChanged`|Selection state event|true = selection active / false = selection inactive
 
 function|description
@@ -203,7 +203,7 @@ angular.module('starter.controllers', [])
 })
 ```
 
-Instead of using this directives you can also add your own buttons and show / hide them depending on selection state event.
+Instead of using this directives you can also add your own buttons and show / hide them depending on the selection state event.
 
 #### Example
 ##### Code
