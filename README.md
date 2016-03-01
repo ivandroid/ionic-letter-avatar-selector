@@ -1,6 +1,3 @@
-There will be more interesting plugins of mine soon! Follow me on [twitter](https://twitter.com/_ivandroid_)!
-If you find this plugin useful, you can purchase it for just [one buck](https://gum.co/rBRAr).
-
 # ionic-letter-avatar-selector  
 
 Ionic View ID: d5a27312
