@@ -3,6 +3,8 @@ If you find this plugin useful, you can purchase it for just [one buck](https://
 
 # ionic-letter-avatar-selector  
 
+[Demo](http://app-ionicletteravatarselector.herokuapp.com)
+
 Ionic View ID: d5a27312
 
 This plugin provides letter avatars for list items and multiple list item selection similar to the Android gmail app. 
