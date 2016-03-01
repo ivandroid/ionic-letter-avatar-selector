@@ -287,10 +287,3 @@ angular.module('starter.controllers', [])
 ##Versions
 
 [CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
-
-## Contact
-
-Please contact me if you have questions or suggestions to this plugin. 
-
-* email : ivan.weber@gmx.de
-* twitter : https://twitter.com/_ivandroid_
