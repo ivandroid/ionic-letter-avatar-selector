@@ -88,13 +88,13 @@ The following options can be set in the configuration phase:
 
 option|description|type|accepted values|default value
 ---|---|---|---|---
-background|Background color of letter avatars|String|css color names, hex color codes, ionic color names (e.g. 'positive') and 'random' for random colors|positive
-color|Foreground color of letter avatars (text color)|String|css color names, hex color codes and ionic color names|light
-border|Border of letter avatars|String|css border values|none
-number of letters|Number of letters to show inside a letter avatar|Number|1-n|the default letter number is detected depending on the word number in a given string
-selection on Android|Enabling / disabling selection on Android|Boolean|true, false|true
-selection on iOS|Enabling / disabling selection on iOS|Boolean|true, false|false
-selection color|Color of avatars and navigation bar during selection|String|hex color codes|#A8A8A8
+background|Background color of letter avatars|string|css color names, hex color codes, ionic color names (e.g. 'positive') and 'random' for random colors|positive
+color|Foreground color of letter avatars (text color)|string|css color names, hex color codes and ionic color names|light
+border|Border of letter avatars|string|css border values|none
+number of letters|number of letters to show inside a letter avatar|number|1-n|the default letter number is detected depending on the word number in a given string
+selection on Android|Enabling / disabling selection on Android|boolean|true, false|true
+selection on iOS|Enabling / disabling selection on iOS|boolean|true, false|false
+selection color|Color of avatars and navigation bar during selection|string|hex color codes|#A8A8A8
 
 #### Example
 ##### Code
@@ -102,13 +102,13 @@ selection color|Color of avatars and navigation bar during selection|String|hex 
 ```javascript
 angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 .config(function($ionicLetterAvatarSelectorConfigProvider) {
-    $ionicLetterAvatarSelectorConfigProvider.setBackground("calm");
-    $ionicLetterAvatarSelectorConfigProvider.setColor("light");
-    $ionicLetterAvatarSelectorConfigProvider.setBorder("1px solid black");
+    $ionicLetterAvatarSelectorConfigProvider.setBackground('calm');
+    $ionicLetterAvatarSelectorConfigProvider.setColor('light');
+    $ionicLetterAvatarSelectorConfigProvider.setBorder('1px solid black');
     $ionicLetterAvatarSelectorConfigProvider.setLetters(3);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionAndroid(false);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionIos(true);
-    $ionicLetterAvatarSelectorConfigProvider.setSelectionColor("#86b0f9");
+    $ionicLetterAvatarSelectorConfigProvider.setSelectionColor('#86b0f9');
 });
 ```
 
