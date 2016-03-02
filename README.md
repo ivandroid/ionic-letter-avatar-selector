@@ -16,26 +16,23 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 
 
 ## Quick start 
-*1.* Get the files from here or install from bower:
+(1) Get the files from here or install from bower:
 
 ```
 bower install ionic-letter-avatar-selector
 ```
-
-2. Put the javascript and css files or their minified versions into your `index.html` file.
+(2) Put the javascript and css files or their minified versions into your `index.html` file.
 
 ```html
 <link href="style/css/ionic-letter-avatar-selector.min.css" rel="stylesheet">
 <script src="dist/ionic-letter-avatar-selector.min.js"></script>
 ```
-
-3. Add the module `ionicLetterAvatarSelector` to your application dependencies:
+(3)Add the module `ionicLetterAvatarSelector` to your application dependencies:
 
 ```javascript
 angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 ```
-
-4. Add the attribute `letters-of` to the `ion-item` directive for using **only** the letter avatar feature.
+(4) Add the attribute `letters-of` to the `ion-item` directive for using **only** the letter avatar feature.
 For using the item selection feature add the additional attribute `item` and pass an item identifier. 
 
 #### Example
