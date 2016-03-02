@@ -38,37 +38,52 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 4. Add the attribute `letters-of` to the `ion-item` directive for using **only** the letter avatar feature.
 For using the item selection feature add the additional attribute `item` and pass an item identifier. 
 
+5. Add the default button directives `ilas-button-finish` and `ilas-button-delete` to your navigation bar.
+
 #### Example
 
 ```html
-<ion-list>
-    <ion-item letters-of="{{chat.name}}"
-              item="{{chat.id}}"
-              href="#/tab/chats/{{chat.id}}"
-              ng-repeat="chat in chats">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-    </ion-item>
-</ion-list>
+<ion-view view-title="Chats">
+    <ion-nav-buttons side="left">
+        <ilas-button-finish></ilas-button-finish>
+    </ion-nav-buttons>    
+    <ion-nav-buttons side="right">
+        <ilas-button-delete ng-click="delete()"></ilas-button-delete>
+    </ion-nav-buttons>  
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-remove-animate"
+                      letters-of="{{chat.name}}"
+                      item="{{chat.id}}"
+                      href="#/tab/chats/{{chat.id}}"
+                      ng-repeat="chat in chats" >
+                <h2>{{chat.name}}</h2>
+                <p>{{chat.lastText}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-assertive" ng-click="delete(chat)">
+                    Delete
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
 ```
-
-Do what ever you want with your selected item identifiers invoking your function:
 
 ```javascript
 angular.module('starter.controllers', [])
+
 // Inject the $ionicLetterAvatarSelector service 
-.controller('YourCtrl', function($ionicLetterAvatarSelector, $scope) {
-    $scope.doSomething = function() {
-        //Get selected item identifiers 
-        var selectedIDs = $ionicLetterAvatarSelector.getData();
+.controller('ChatsCtrl', function($ionicLetterAvatarSelector, $scope, Chats) {
+    $scope.delete = function() {
+        // Get selected item IDs
+        var selectedItems = $ionicLetterAvatarSelector.getData();
         
-        //Do something with them...
+        //Write your code to delete selected items
         
-        //Finish selection
+        // Finish selection
         $ionicLetterAvatarSelector.finish();
     };
-})
+});
 ```
 
 ## Configuration provider
@@ -77,7 +92,7 @@ In the angular configuration phase you can define global settings for this plugi
 The following options can be set in the configuration phase:
 
 option|description|type|accepted values|default value
----|---|---|---|---|---
+---|---|---|---|---
 background|Background color of letter avatars|String|css color names, hex color codes, ionic color names (e.g. 'positive') and 'random' for random colors|positive
 color|Foreground color of letter avatars (text color)|String|css color names, hex color codes and ionic color names|light
 border|Border of letter avatars|String|css border values|none
@@ -111,16 +126,16 @@ angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 
 Using this service you have access to the following events and functions:
 
-event|description|return-value
+event|description|type|value
 ---|---|---|---
-`started`|Selection started event|'$ionicLetterAvatarSelector.started'
-`finished`|Selection finished event|'$ionicLetterAvatarSelector.finished'
-`stateChanged`|Selection state event|true = selection active / false = selection inactive
+`started`|Selection started event|string|$ionicLetterAvatarSelector.started
+`finished`|Selection finished event|string|$ionicLetterAvatarSelector.finished
+`stateChanged`|Selection state event|boolean|`true` if selection is active and `false` if selection is not active
 
-function|description
+function|description|return-value
 ---|---|---
-`getData()`|Retrieval of selected items as array
-`finish()`|Finishing selection
+`getData()`|Retrieval of selected items|array
+`finish()`|Finishing selection|
 
 ## Directives
 ### Extended directive `ion-item`
@@ -128,7 +143,7 @@ function|description
 Add the attribute `letters-of` and `item` to the `ion-item` directive of your list items:
 
 attribute|description
----|---|---
+---|---
 `letters-of`|String value from which the first letter(s) will be used for building a letter avatar
 `item`|Corresponding list item identifier which will be cached during selection
 
