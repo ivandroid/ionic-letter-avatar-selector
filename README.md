@@ -4,6 +4,7 @@ This plugin provides letter avatars for list items and multiple list item select
 It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection feature is disabled on iOS.
 
 ## [Demo](http://app-ionicletteravatarselector.herokuapp.com)  
+![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
 
 ## Features 
 * letter avatars for ionic list items based on the `ion-item` directive
