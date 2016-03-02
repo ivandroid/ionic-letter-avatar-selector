@@ -16,7 +16,7 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 
 
 ## Quick start 
-1. Get the files from here or install from bower:
+*1.* Get the files from here or install from bower:
 
 ```
 bower install ionic-letter-avatar-selector
