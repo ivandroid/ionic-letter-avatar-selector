@@ -58,9 +58,6 @@ For using the item selection feature add the additional attribute `item` and pas
                 <h2>{{chat.name}}</h2>
                 <p>{{chat.lastText}}</p>
                 <i class="icon ion-chevron-right icon-accessory"></i>
-                <ion-option-button class="button-assertive" ng-click="delete(chat)">
-                    Delete
-                </ion-option-button>
             </ion-item>
         </ion-list>
     </ion-content>
