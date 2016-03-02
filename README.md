@@ -119,7 +119,7 @@ angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 
 ### Service `$ionicLetterAvatarSelector`
 
-Using this service you have access to the following events and functions:
+Using this service you have access to the following events and methods:
 
 event|description|type|value
 ---|---|---|---
@@ -127,7 +127,7 @@ event|description|type|value
 `finished`|Selection finished event|string|$ionicLetterAvatarSelector.finished
 `stateChanged`|Selection state event|boolean|`true` if selection is active and `false` if selection is not active
 
-function|description|return-value
+method|description|return-value
 ---|---|---
 `getData()`|Retrieval of selected items|array
 `finish()`|Finishing selection|
