@@ -23,8 +23,8 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 2. Include the javascript and css files or their minified versions in your `index.html` file.
 
     ```html
-    <link href="./ionic-letter-avatar-selector.min.css" rel="stylesheet">
-    <script src="./ionic-letter-avatar-selector.min.js"></script>
+    <link href="style/css/ionic-letter-avatar-selector.min.css" rel="stylesheet">
+    <script src="dist/ionic-letter-avatar-selector.min.js"></script>
     ```
     
 3. Add the module `ionicLetterAvatarSelector` to your application dependencies:
