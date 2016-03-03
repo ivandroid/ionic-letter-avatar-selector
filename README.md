@@ -289,10 +289,10 @@ angular.module('starter.controllers', [])
 
 ![screenshot3](http://fs5.directupload.net/images/160222/m5heu6xg.png)
 
-##License
+## License
 
 [MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
 
-##Versions
+## Versions
 
 [CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
