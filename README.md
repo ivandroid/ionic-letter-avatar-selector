@@ -289,6 +289,15 @@ angular.module('starter.controllers', [])
 
 ![screenshot3](http://fs5.directupload.net/images/160222/m5heu6xg.png)
 
+## Author
+
+☟|☟
+---|---
+email|ivan.weber@gmx.de
+twitter|https://twitter.com/_ivandroid_
+github|https://github.com/ivandroid
+ionic market|https://market.ionic.io/user/6540
+
 ## License
 
 [MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
