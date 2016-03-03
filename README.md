@@ -38,7 +38,7 @@ For using the item selection feature add the additional attribute `item` and pas
 
 5. Add the default button directives `ilas-button-finish` and `ilas-button-delete` to your navigation bar.
 
-#### Example
+#### Example *(based on the ionic starter tabs app)*
 
 ```html
 <ion-view view-title="Chats">
