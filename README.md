@@ -294,7 +294,7 @@ angular.module('starter.controllers', [])
 ☟|☟
 ---|---
 email|ivan.weber@gmx.de
-twitter|https://twitter.com/_ivandroid_
+twitter|https://twitter.com/hybrid_app
 github|https://github.com/ivandroid
 ionic market|https://market.ionic.io/user/6540
 
