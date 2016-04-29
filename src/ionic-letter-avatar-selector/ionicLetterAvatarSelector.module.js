@@ -57,21 +57,16 @@
             var directive = $delegate[0];
             directive.compile = function($element, $attrs) {
                 var isAnchor = angular.isDefined($attrs.href) || angular.isDefined($attrs.ngHref) || angular.isDefined($attrs.uiSref);
-                var isComplexItem = isAnchor || /ion-(delete|option|reorder)-button/i.test($element.html());
                 var innerElement = angular.element(isAnchor ? "<a></a>" : "<div></div>");
-                if (isComplexItem) {
-                    innerElement.addClass("item-content");
-                    if (angular.isDefined($attrs.href) || angular.isDefined($attrs.ngHref)) {
-                        innerElement.attr("ng-href", "{{$href()}}");
-                        if (angular.isDefined($attrs.target)) {
-                            innerElement.attr("target", "{{$target()}}");
-                        }
+                innerElement.addClass("item-content");
+                if (angular.isDefined($attrs.href) || angular.isDefined($attrs.ngHref)) {
+                    innerElement.attr("ng-href", "{{$href()}}");
+                    if (angular.isDefined($attrs.target)) {
+                        innerElement.attr("target", "{{$target()}}");
                     }
-                    innerElement.append($element.contents());
-                    $element.addClass("item item-complex").append(innerElement);
-                } else {
-                    $element.addClass("item");
                 }
+                innerElement.append($element.contents());
+                $element.addClass("item item-complex").append(innerElement);
                 var usePlugin = angular.isDefined($attrs.lettersOf);
                 if (usePlugin) {
                     $element.addClass("item-avatar-left");
