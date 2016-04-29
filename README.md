@@ -23,7 +23,7 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 * two buttons for finishing a selection and deleting selected items
 
 
-### [1.2 Demo](http://app-ionicletteravatarselector.herokuapp.com)  
+###[1.2 Demo](http://app-ionicletteravatarselector.herokuapp.com)  
 ![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
 
 ###1.3 Author
