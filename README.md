@@ -4,7 +4,7 @@
     * [Features](##1.1 Features)
     * [Demo](##1.2 Demo)
     * [Author](##1.3 Author)
-    * [License](##14license)
+    * [License](#14license)
     * [Versions](##1.5 Versions)
 
 ## 1. Info
