@@ -1,10 +1,29 @@
 # <img src="http://fs5.directupload.net/images/160429/yhu3tfae.png" width="30"> ionic-letter-avatar-selector  
-
+## Info
 This plugin provides letter avatars for list items and multiple list item selection similar to the Android gmail app. 
 It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection feature is disabled on iOS.
 
-## [Demo](http://app-ionicletteravatarselector.herokuapp.com)  
-![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
+### Author
+
+☟|☟
+---|---
+email|ivan.weber@gmx.de
+twitter|https://twitter.com/hybrid_app
+github|https://github.com/ivandroid
+ionic market|https://market.ionic.io/user/6540
+donations|You're welcome to donate. Any amount at any time! :-)
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="ivan.weber@gmx.de">
+<input type="hidden" name="lc" value="DE">
+<input type="hidden" name="item_name" value="GithubRepositories">
+<input type="hidden" name="no_note" value="0">
+<input type="hidden" name="currency_code" value="EUR">
+<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+<input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+</form>
 
 ## Features 
 * letter avatars for ionic list items based on the `ion-item` directive
@@ -12,6 +31,9 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 * retrieval of selected items
 * two buttons for finishing a selection and deleting selected items
 
+
+## [Demo](http://app-ionicletteravatarselector.herokuapp.com)  
+![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
 
 ## Quick start 
 1. Get the files from here or install from bower:
@@ -188,9 +210,9 @@ You can use this directive to show / hide a button for finishing item selection.
 This directive shows / hides a button for deleting selected items. The default icons for iOS and Android are `ion-ios-trash` and `ion-android-delete`.
 Using `ng-click` attribute you have to invoke your specific delete function considering the following actions: 
 
-1. In your delete function first get selected item identifiers invoking the `getData()` function of the `$ionicLetterAvatarSelector` service.
-2. Write your code for deleting selected items. 
-3. Finish selection invoking the `finish()` method of the service.
+2. In your delete function first get selected item identifiers invoking the `getData()` function of the `$ionicLetterAvatarSelector` service.
+3. Write your code for deleting selected items. 
+4. Finish selection invoking the `finish()` method of the service.
 
 #### Example
 
@@ -286,19 +308,11 @@ angular.module('starter.controllers', [])
 
 ![screenshot3](http://fs5.directupload.net/images/160222/m5heu6xg.png)
 
-## Author
-
-☟|☟
----|---
-email|ivan.weber@gmx.de
-twitter|https://twitter.com/hybrid_app
-github|https://github.com/ivandroid
-ionic market|https://market.ionic.io/user/6540
-
-## License
+### License
 
 [MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
 
-## Versions
+### Versions
 
 [CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
+
