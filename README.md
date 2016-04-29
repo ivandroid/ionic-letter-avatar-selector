@@ -44,7 +44,7 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 [CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
 
 
-##2. Quick start 
+##2. Usage 
 1. Get the files from here or install from bower:
 
     ```
