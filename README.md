@@ -190,7 +190,7 @@ Using `ng-click` attribute you have to invoke your specific delete function cons
 
 1. In your delete function first get selected item identifiers invoking the `getData()` function of the `$ionicLetterAvatarSelector` service.
 2. Write your code for deleting selected items. 
-3. Finish selection invoking the `finish()` function of the above-mentioned service.
+3. Finish selection invoking the `finish()` method of the service.
 
 #### Example
 
