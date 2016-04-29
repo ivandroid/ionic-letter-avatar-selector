@@ -140,11 +140,8 @@ Add the attribute `letters-of` and `item` to the `ion-item` directive of your li
 attribute|description
 ---|---
 `letters-of`|String value from which the first letter(s) will be used for building a letter avatar
-`item`|Corresponding list item identifier which will be cached during selection
+`item`|Corresponding list item identifier which will be cached during selection. Leave the `item` attribute out, if you don't want to use the item selection feature. 
 
-### Note
-
-Leave the `item` attribute out, if you don't want to use the item selection feature. 
 
 The attributes `background`, `color`, `border` and `letters` are optional and can be also set globally in the configuration phase:
 
