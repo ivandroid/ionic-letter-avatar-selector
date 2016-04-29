@@ -1,9 +1,20 @@
 # <img src="http://fs5.directupload.net/images/160429/yhu3tfae.png" width="30"> ionic-letter-avatar-selector  
-## Info
+## 1. Info
 This plugin provides letter avatars for list items and multiple list item selection similar to the Android gmail app. 
-It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection feature is disabled on iOS.
+It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection feature is disabled on iOS. 
+You can test the plugin via the [ionic view app](http://view.ionic.io/) with the ID **d5a27312**.
 
-### Author
+### 1.1 Features 
+* letter avatars for ionic list items based on the `ion-item` directive
+* multiple selection and deselection of list items by clicking on a letter avatar or long clicking on a list item
+* retrieval of selected items
+* two buttons for finishing a selection and deleting selected items
+
+
+### [1.2 Demo](http://app-ionicletteravatarselector.herokuapp.com)  
+![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
+
+### 1.3 Author
 * E-Mail: ivan.weber@gmx.de
 * Twitter: https://twitter.com/hybrid_app
 * Github: https://github.com/ivandroid
@@ -12,25 +23,16 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ivan%2eweber%40gmx%2ede&lc=DE&item_name=GithubRepositories&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest)
 
-### License
+### 1.4 License
 
 [MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
 
-### Versions
+### 1.5 Versions
 
 [CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
 
-## Features 
-* letter avatars for ionic list items based on the `ion-item` directive
-* multiple selection and deselection of list items by clicking on a letter avatar or long clicking on a list item
-* retrieval of selected items
-* two buttons for finishing a selection and deleting selected items
 
-
-## [Demo](http://app-ionicletteravatarselector.herokuapp.com)  
-![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
-
-## Quick start 
+## 2. Quick start 
 1. Get the files from here or install from bower:
 
     ```
@@ -98,7 +100,7 @@ angular.module('starter.controllers', [])
 });
 ```
 
-## Configuration provider
+## 3. Configuration provider
 
 In the angular configuration phase you can define global settings for this plugin. For that purpose there is a provider named `$ionicLetterAvatarSelectorConfigProvider`.
 The following options can be set in the configuration phase:
@@ -132,9 +134,9 @@ angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 ##### Result
 ![screenshot1](http://fs5.directupload.net/images/160223/r766ommj.png)
 
-## Services
+## 4. Services
 
-### Service `$ionicLetterAvatarSelector`
+### 4.1 Service `$ionicLetterAvatarSelector`
 
 Using this service you have access to the following events and methods:
 
@@ -149,8 +151,8 @@ method|description|return-value
 `getData()`|Retrieval of selected items|array
 `finish()`|Finishing selection|
 
-## Directives
-### Extended directive `ion-item`
+## 5. Directives
+### 5.1 Extended directive `ion-item`
 
 Add the attribute `letters-of` and `item` to the `ion-item` directive of your list items:
 
@@ -185,7 +187,7 @@ The attributes `background`, `color`, `border` and `letters` are optional and ca
 
 ![screenshot2](http://fs5.directupload.net/images/160222/z72w4mqz.png)
 
-### Directive `ilas-button-finish`
+### 5.2 Directive `ilas-button-finish`
 
 You can use this directive to show / hide a button for finishing item selection. The default icons for iOS and Android are `ion-checkmark-empty` and `ion-android-arrow-back`.
 
@@ -200,7 +202,7 @@ You can use this directive to show / hide a button for finishing item selection.
 </ion-nav-bar>
 ```
 
-### Directive `ilas-button-delete`
+### 5.3 Directive `ilas-button-delete`
 
 This directive shows / hides a button for deleting selected items. The default icons for iOS and Android are `ion-ios-trash` and `ion-android-delete`.
 Using `ng-click` attribute you have to invoke your specific delete function considering the following actions: 
