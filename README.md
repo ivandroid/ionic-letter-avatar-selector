@@ -228,7 +228,7 @@ angular.module('starter.controllers', [])
 })
 ```
 
-Instead of using this directives you can also add your own buttons and show / hide them depending on the selection state event.
+Instead of using this directives you can also add your own buttons and show / hide them depending on the selection state.
 
 #### Example
 ##### Code
