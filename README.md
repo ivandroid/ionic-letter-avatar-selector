@@ -1,11 +1,11 @@
 # <img src="http://fs5.directupload.net/images/160429/yhu3tfae.png" width="30"> ionic-letter-avatar-selector  
 
-* [Info](##1. Info)
-    * [Features](##1.1-Features)
-    * [Demo](##1.2-Demo)
-    * [Author](##1.3-Author)
-    * [License](##1.4-Author)
-    * [Versions](##1.5-Versions)
+* [Info](##1.)
+    * [Features](##1.1 Features)
+    * [Demo](##1.2 Demo)
+    * [Author](##1.3 Author)
+    * [License](##14license)
+    * [Versions](##1.5 Versions)
 
 ## 1. Info
 This plugin provides letter avatars for list items and multiple list item selection similar to the Android gmail app. 
@@ -31,7 +31,7 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ivan%2eweber%40gmx%2ede&lc=DE&item_name=GithubRepositories&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest)
 
-### 1.4 License
+###1.4 License
 
 [MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
 
