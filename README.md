@@ -3,6 +3,7 @@
 This plugin provides letter avatars for list items and multiple list item selection similar to the Android gmail app. 
 It can be integrated into your ionic 1.x app using the `ion-item` directive. By default the item selection feature is disabled on iOS.
 
+### Author
 * E-Mail: ivan.weber@gmx.de
 * Twitter: https://twitter.com/hybrid_app
 * Github: https://github.com/ivandroid
@@ -10,6 +11,14 @@ It can be integrated into your ionic 1.x app using the `ion-item` directive. By 
 * Donations: You're welcome to donate. Any amount at any time! :-)
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ivan%2eweber%40gmx%2ede&lc=DE&item_name=GithubRepositories&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest)
+
+### License
+
+[MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
+
+### Versions
+
+[CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
 
 ## Features 
 * letter avatars for ionic list items based on the `ion-item` directive
@@ -293,12 +302,4 @@ angular.module('starter.controllers', [])
 ##### Result
 
 ![screenshot3](http://fs5.directupload.net/images/160222/m5heu6xg.png)
-
-### License
-
-[MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
-
-### Versions
-
-[CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
 
