@@ -186,7 +186,7 @@ You can use this directive to show / hide a button for finishing item selection.
 ### Directive `ilas-button-delete`
 
 This directive shows / hides a button for deleting selected items. The default icons for iOS and Android are `ion-ios-trash` and `ion-android-delete`.
-Using `ng-click` attribute you can invoke your specific delete function considering the following actions: 
+Using `ng-click` attribute you have to invoke your specific delete function considering the following actions: 
 
 1. In your delete function first get selected item identifiers invoking the `getData()` function of the `$ionicLetterAvatarSelector` service.
 2. Write your code for deleting selected items. 
