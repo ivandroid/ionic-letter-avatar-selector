@@ -88,13 +88,13 @@ The following options can be set in the configuration phase:
 
 option|description|type|accepted values|default value
 ---|---|---|---|---
-background|Background color of letter avatars|string|css color names, hex color codes, ionic color names (e.g. 'positive') and 'random' for random colors|positive
-color|Foreground color of letter avatars (text color)|string|css color names, hex color codes and ionic color names|light
+background|Background color of letter avatars|string|css color names, hex color codes, ionic color names (e.g. *positive*) and *random* for random colors|*positive*
+color|Foreground color of letter avatars (text color)|string|css color names, hex color codes and ionic color names|*light*
 border|Border of letter avatars|string|css border values|none
 number of letters|number of letters to show inside a letter avatar|number|1-n|the default letter number is detected depending on the word number in a given string
-selection on Android|Enabling / disabling selection on Android|boolean|true, false|true
-selection on iOS|Enabling / disabling selection on iOS|boolean|true, false|false
-selection color|Color of avatars and navigation bar during selection|string|hex color codes|#A8A8A8
+selection on Android|Enabling / disabling selection on Android|boolean|*true, false*|*true*
+selection on iOS|Enabling / disabling selection on iOS|boolean|*true, false*|*false*
+selection color|Color of avatars and navigation bar during selection|string|hex color codes|*#A8A8A8*
 
 #### Example
 ##### Code
@@ -121,11 +121,11 @@ angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 
 Using this service you have access to the following events and methods:
 
-event|description|type|value
+event|description|type|return-value
 ---|---|---|---
-`started`|Selection started event|string|$ionicLetterAvatarSelector.started
-`finished`|Selection finished event|string|$ionicLetterAvatarSelector.finished
-`stateChanged`|Selection state event|boolean|`true` if selection is active and `false` if selection is not active
+`started`|Selection started event|string|none
+`finished`|Selection finished event|string|none
+`stateChanged`|Selection state event|boolean|*true* if selection is active and *false* if selection is not active
 
 method|description|return-value
 ---|---|---
