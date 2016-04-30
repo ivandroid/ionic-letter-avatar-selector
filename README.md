@@ -39,7 +39,7 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 * Twitter: https://twitter.com/hybrid_app
 * Github: https://github.com/ivandroid
 * Ionic Market: https://market.ionic.io/user/6540
-* Donations: You're welcome to donate. Any amount at any time! :-)
+* Donations: If you find this project useful and want support its development you can press the button below.
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ivan%2eweber%40gmx%2ede&lc=DE&item_name=GithubRepositories&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest)
 
