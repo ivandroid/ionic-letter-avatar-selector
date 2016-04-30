@@ -3,9 +3,9 @@
 * [Info](#1-info)
     * [Features](#11-features)
     * [Demo](#12-demo)
-    * [Author](#13-author)
-    * [License](#14-license)
-    * [Versions](#15-versions)
+    * [License](#13-license)
+    * [Versions](#14-versions)
+    * [Author](#15-author)
 * [Usage](#2-usage)
 * [Configuration provider](#3-configuration-provider)
 * [Services](#4-services)
@@ -26,7 +26,15 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 ###[1.2 Demo](http://app-ionicletteravatarselector.herokuapp.com)  
 ![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
 
-###1.3 Author
+###1.3 License
+
+[MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
+
+###1.4 Versions
+
+[CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
+
+###1.5 Author
 * E-Mail: ivan.weber@gmx.de
 * Twitter: https://twitter.com/hybrid_app
 * Github: https://github.com/ivandroid
@@ -34,15 +42,6 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 * Donations: You're welcome to donate. Any amount at any time! :-)
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ivan%2eweber%40gmx%2ede&lc=DE&item_name=GithubRepositories&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest)
-
-###1.4 License
-
-[MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
-
-###1.5 Versions
-
-[CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
-
 
 ##2. Usage 
 1. Get the files from here or install from bower:
