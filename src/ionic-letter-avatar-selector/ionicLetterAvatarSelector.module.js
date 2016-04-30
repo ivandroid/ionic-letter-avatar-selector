@@ -70,9 +70,11 @@
                     }
                     innerElement.append($element.contents());
                     $element.addClass("item item-complex").append(innerElement);
+                    if (isComplexItem) {
+                        $element.addClass("item-icon-right");
+                    }
                     if (isLetterAvatar) {
                         $element.addClass("item-avatar-left");
-                        $element.addClass("item-icon-right");
                         innerElement.prepend('<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img" ng-click="select($event)"/>');
                     }
                 } else {
