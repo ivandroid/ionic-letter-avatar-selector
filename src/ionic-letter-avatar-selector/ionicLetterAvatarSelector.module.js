@@ -70,9 +70,9 @@
                 var usePlugin = angular.isDefined($attrs.lettersOf);
                 if (usePlugin) {
                     $element.addClass("item-avatar-left");
-                    $element.addClass("item-icon-right");
                     innerElement.prepend('<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img" ng-click="select($event)"/>');
                     if (angular.isUndefined($attrs.hideAccessoryIcon) && !$ionicLetterAvatarSelectorConfig.isAndroid) {
+                        $element.addClass("item-icon-right");
                         innerElement.append('<i class="icon ion-chevron-right icon-accessory"></i>');
                     }
                 };
