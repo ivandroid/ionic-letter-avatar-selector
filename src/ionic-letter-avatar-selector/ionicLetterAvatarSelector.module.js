@@ -57,25 +57,27 @@
             var directive = $delegate[0];
             directive.compile = function($element, $attrs) {
                 var isAnchor = angular.isDefined($attrs.href) || angular.isDefined($attrs.ngHref) || angular.isDefined($attrs.uiSref);
+                var isComplexItem = isAnchor || /ion-(delete|option|reorder)-button/i.test($element.html());
                 var innerElement = angular.element(isAnchor ? "<a></a>" : "<div></div>");
-                innerElement.addClass("item-content");
-                if (angular.isDefined($attrs.href) || angular.isDefined($attrs.ngHref)) {
-                    innerElement.attr("ng-href", "{{$href()}}");
-                    if (angular.isDefined($attrs.target)) {
-                        innerElement.attr("target", "{{$target()}}");
+                var isLetterAvatar = angular.isDefined($attrs.lettersOf);
+                if (isComplexItem || isLetterAvatar) {
+                    innerElement.addClass("item-content");
+                    if (angular.isDefined($attrs.href) || angular.isDefined($attrs.ngHref)) {
+                        innerElement.attr("ng-href", "{{$href()}}");
+                        if (angular.isDefined($attrs.target)) {
+                            innerElement.attr("target", "{{$target()}}");
+                        }
                     }
-                }
-                innerElement.append($element.contents());
-                $element.addClass("item item-complex").append(innerElement);
-                var usePlugin = angular.isDefined($attrs.lettersOf);
-                if (usePlugin) {
-                    $element.addClass("item-avatar-left");
-                    innerElement.prepend('<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img" ng-click="select($event)"/>');
-                    if (angular.isUndefined($attrs.hideAccessoryIcon) && !$ionicLetterAvatarSelectorConfig.isAndroid) {
+                    innerElement.append($element.contents());
+                    $element.addClass("item item-complex").append(innerElement);
+                    if (isLetterAvatar) {
+                        $element.addClass("item-avatar-left");
                         $element.addClass("item-icon-right");
-                        innerElement.append('<i class="icon ion-chevron-right icon-accessory"></i>');
+                        innerElement.prepend('<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img" ng-click="select($event)"/>');
                     }
-                };
+                } else {
+                    $element.addClass("item");
+                }
 
                 return function($scope, $element, $attrs) {
                     $scope.$href = function () {
@@ -100,7 +102,7 @@
                         });
                     }
 
-                    if (usePlugin) {
+                    if (isLetterAvatar) {
                         var selectionEnabled = ($ionicLetterAvatarSelectorConfig.isIos || $ionicLetterAvatarSelectorConfig.isAndroid) && angular.isDefined($attrs.item);
                         var gesture = $ionicGesture.on("hold", onHold, $element);
                         var imgDefault = svg(false, $attrs.lettersOf, $attrs.letters, $attrs.background, $attrs.color);
