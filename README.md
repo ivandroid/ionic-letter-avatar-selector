@@ -1,4 +1,4 @@
-# [Ionic Playground Demo](http://play.ionic.io/app/3711602a17f7)  
+## [Ionic Playground Demo](http://play.ionic.io/app/3711602a17f7)  
 
 * [Info](#1-info)
     * [Features](#11-features)
