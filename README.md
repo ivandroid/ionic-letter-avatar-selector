@@ -1,11 +1,10 @@
-# <img src="http://fs5.directupload.net/images/160429/yhu3tfae.png" width="30"> ionic-letter-avatar-selector  
+# <img src="http://fs5.directupload.net/images/160429/yhu3tfae.png" width="30"> ionic-letter-avatar-selector - [Ionic Playground Demo](http://play.ionic.io/app/3711602a17f7)  
 
 * [Info](#1-info)
     * [Features](#11-features)
-    * [Demo](#12-ionic-playground-demo)
-    * [License](#13-license)
-    * [Versions](#14-versions)
-    * [Author](#15-author)
+    * [License](#12-license)
+    * [Versions](#13-versions)
+    * [Author](#14-author)
 * [Usage](#2-usage)
 * [Configuration provider](#3-configuration-provider)
 * [Services](#4-services)
@@ -23,17 +22,15 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 * two buttons for finishing a selection and deleting selected items
 
 
-###[1.2 Ionic Playground Demo](http://play.ionic.io/app/3711602a17f7)  
-
-###1.3 License
+###1.2 License
 
 [MIT](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/LICENSE)
 
-###1.4 Versions
+###1.3 Versions
 
 [CHANGELOG](https://github.com/ivandroid/ionic-letter-avatar-selector/blob/master/CHANGELOG.md)
 
-###1.5 Author
+###1.4 Author
 * E-Mail: ivan.weber@gmx.de
 * Twitter: https://twitter.com/hybrid_app
 * Github: https://github.com/ivandroid
