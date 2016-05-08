@@ -3,7 +3,7 @@
 #### Changes
 
 * **configuration provider:** Number of letters option renamed: `letters` to `letterNumber`
-* **configuration provider:** New option added: `finishOnStateChange` (If `true`, selection is finished on angular state change)
+* **configuration provider:** New option added: `finishOnStateChange` (If `true`, selection is finished on angular state change, default is `false`)
 
 ### 1.0.2 (2016-02-29)
 
