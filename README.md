@@ -1,5 +1,4 @@
-# <img src="http://fs5.directupload.net/images/160429/yhu3tfae.png" width="30"> ionic-letter-avatar-selector
-# [Ionic Playground Demo](http://play.ionic.io/app/3711602a17f7)  
+# <img src="http://fs5.directupload.net/images/160429/yhu3tfae.png" width="30"> ionic-letter-avatar-selector - [Demo](http://play.ionic.io/app/3711602a17f7)  
 
 * [Info](#1-info)
     * [Features](#11-features)
