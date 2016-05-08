@@ -2,7 +2,7 @@
 
 * [Info](#1-info)
     * [Features](#11-features)
-    * [Demo](#12-demo)
+    * [Demo](#12-ionic-playground-demo)
     * [License](#13-license)
     * [Versions](#14-versions)
     * [Author](#15-author)
@@ -23,8 +23,7 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 * two buttons for finishing a selection and deleting selected items
 
 
-###[1.2 Demo](http://app-ionicletteravatarselector.herokuapp.com)  
-![animated example](http://i.giphy.com/3o6gbcO6uExMGe2xuE.gif)
+###[1.2 Ionic Playground Demo](http://play.ionic.io/app/3711602a17f7)  
 
 ###1.3 License
 
