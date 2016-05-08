@@ -395,15 +395,13 @@
                     $scope.isAndroid = $ionicLetterAvatarSelectorConfig.isAndroid;
                     $scope.icon = IONIC_LETTER_AVATAR_SELECTOR_ICONS.delete;
                     
-                    $scope.$on($ionicLetterAvatarSelector.started, function() {
-                        $scope.selectionActive = true;
+                    $scope.$on($ionicLetterAvatarSelector.stateChanged, function($event, selectionActive) {
+                        $scope.selectionActive = selectionActive;
                     });
-                    $scope.$on($ionicLetterAvatarSelector.finished, function() {
-                        $scope.selectionActive = false;
-                    });
-                    $scope.$on("$stateChangeStart", function($event, toState, toParams, fromState) {
+                    $scope.$on("$stateChangeSuccess", function($event, toState, toParams, fromState) {
                         if ($ionicLetterAvatarSelector.active()) {
                             $scope.viewChanged = fromState.name === ionicLetterAvatarSelector.selectionView;
+                            $scope.selectionActive = true;
                         }
                     });
                 }
@@ -431,13 +429,10 @@
                     $scope.isAndroid = $ionicLetterAvatarSelectorConfig.isAndroid;
                     $scope.icon = IONIC_LETTER_AVATAR_SELECTOR_ICONS.finish;
                     
-                    $scope.$on($ionicLetterAvatarSelector.started, function() {
-                        $scope.selectionActive = true;
+                    $scope.$on($ionicLetterAvatarSelector.stateChanged, function($event, selectionActive) {
+                        $scope.selectionActive = selectionActive;
                     });
-                    $scope.$on($ionicLetterAvatarSelector.finished, function() {
-                        $scope.selectionActive = false;
-                    });
-                    $scope.$on("$stateChangeStart", function($event, toState, toParams, fromState) {
+                    $scope.$on("$stateChangeSuccess", function($event, toState, toParams, fromState) {
                         if ($ionicLetterAvatarSelector.active()) {
                             $scope.viewChanged = fromState.name === ionicLetterAvatarSelector.selectionView;
                         }
