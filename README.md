@@ -135,7 +135,8 @@ angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
 .config(function($ionicLetterAvatarSelectorConfigProvider) {
     $ionicLetterAvatarSelectorConfigProvider.setBackground('calm');
     $ionicLetterAvatarSelectorConfigProvider.setColor('light');
-    $ionicLetterAvatarSelectorConfigProvider.setBorder('1px solid black');
+    $ionicLetterAvatarSelectorConfigProvider.setBorder('1px solid black');    
+    $ionicLetterAvatarSelectorConfigProvider.setFinishOnStateChanged(true);
     $ionicLetterAvatarSelectorConfigProvider.setLetterNumber(3);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionAndroid(false);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionIos(true);
@@ -316,4 +317,3 @@ angular.module('starter.controllers', [])
 ##### Result
 
 ![screenshot3](http://fs5.directupload.net/images/160222/m5heu6xg.png)
-
