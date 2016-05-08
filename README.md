@@ -121,10 +121,11 @@ option|description|type|accepted values|default value
 background|Background color of letter avatars|string|css color names, hex color codes, ionic color names (e.g. *positive*) and *random* for random colors|*positive*
 color|Foreground color of letter avatars (text color)|string|css color names, hex color codes and ionic color names|*light*
 border|Border of letter avatars|string|css border values|none
-number of letters|number of letters to show inside a letter avatar|number|1-n|the default letter number is detected depending on the word number in a given string
-selection on Android|Enabling / disabling selection on Android|boolean|*true, false*|*true*
-selection on iOS|Enabling / disabling selection on iOS|boolean|*true, false*|*false*
-selection color|Color of avatars and navigation bar during selection|string|hex color codes|*#A8A8A8*
+finishOnStateChange|Enable / disable finishing selection on angular state change event|boolean|*true, false*|*false*
+letterNumber|number of letters to show inside a letter avatar|integer|1-n|the default letter number is detected depending on the word number in a given string
+selectionAndroid|Enable / disable selection on Android|boolean|*true, false*|*true*
+selectionIos|Enable / disable selection on iOS|boolean|*true, false*|*false*
+selectionColor|Color of avatars and navigation bar during selection|string|hex color codes|*#A8A8A8*
 
 #### Example
 ##### Code
@@ -135,7 +136,7 @@ angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
     $ionicLetterAvatarSelectorConfigProvider.setBackground('calm');
     $ionicLetterAvatarSelectorConfigProvider.setColor('light');
     $ionicLetterAvatarSelectorConfigProvider.setBorder('1px solid black');
-    $ionicLetterAvatarSelectorConfigProvider.setLetters(3);
+    $ionicLetterAvatarSelectorConfigProvider.setLetterNumber(3);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionAndroid(false);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionIos(true);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionColor('#86b0f9');
