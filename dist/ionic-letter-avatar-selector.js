@@ -174,7 +174,7 @@
                             renderHeader(ionicLetterAvatarSelector.header.background, ionicLetterAvatarSelector.header.border);
                             if ($ionicLetterAvatarSelectorConfig.isAndroid) {
                                 $title.css("margin-left", "10px");
-                            }
+                            } 
                         }
                         
                         function renderSelected() {
@@ -188,7 +188,7 @@
                             renderHeader($ionicLetterAvatarSelectorConfig.selectionColor, "none");
                             if ($ionicLetterAvatarSelectorConfig.isAndroid) {
                                 $title.css("margin-left", "30px");
-                            }
+                            } 
                         }
                         
                         function renderUnselected() {
@@ -314,6 +314,9 @@
                                 if ($ionicLetterAvatarSelector.active()) {
                                     if (toState.name === ionicLetterAvatarSelector.selectionView) {
                                         renderStarted();
+                                        setTimeout(function() {
+                                            $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
+                                        }, 600);
                                     }
                                 }
                             });
