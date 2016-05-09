@@ -19,7 +19,7 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 
 ###1.2 Demo
 #### [Ionic Playground](http://play.ionic.io/app/3711602a17f7)  
-#### ![animation](https://www.dropbox.com/s/b0zopcqjssu65ko/demo.gif?dl=0)
+#### ![animation](https://dl.dropbox.com/s/b0zopcqjssu65ko/demo.gif)
 
 ###1.3 License
 
