@@ -18,7 +18,7 @@ You can test the plugin via the [ionic view app](http://view.ionic.io/) with the
 * two buttons for finishing a selection and deleting selected items
 
 ###1.2 Demo
-#### [Ionic Playground](http://play.ionic.io/app/3711602a17f7)  
+#### [Ionic Playground](http://play.ionic.io/app/ceff331aea68)  
 #### ![animation](https://dl.dropbox.com/s/b0zopcqjssu65ko/demo.gif)
 
 ###1.3 License
