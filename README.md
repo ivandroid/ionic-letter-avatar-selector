@@ -131,7 +131,7 @@ angular.module('starter', ['ionic', 'ionicLetterAvatarSelector'])
     $ionicLetterAvatarSelectorConfigProvider.setBackground('calm');
     $ionicLetterAvatarSelectorConfigProvider.setColor('light');
     $ionicLetterAvatarSelectorConfigProvider.setBorder('1px solid black');    
-    $ionicLetterAvatarSelectorConfigProvider.setFinishOnStateChanged(true);
+    $ionicLetterAvatarSelectorConfigProvider.setFinishOnStateChange(true);
     $ionicLetterAvatarSelectorConfigProvider.setLetterNumber(3);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionAndroid(false);
     $ionicLetterAvatarSelectorConfigProvider.setSelectionIos(true);
