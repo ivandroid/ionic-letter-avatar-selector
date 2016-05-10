@@ -162,6 +162,7 @@
                 var isComplexItem = isAnchor || /ion-(delete|option|reorder)-button/i.test($element.html());
                 var innerElement = angular.element(isAnchor ? "<a></a>" : "<div></div>");
                 var isLetterAvatar = angular.isDefined($attrs.lettersOf);
+                var selectionEnabled = ($ionicLetterAvatarSelectorConfig.isIos || $ionicLetterAvatarSelectorConfig.isAndroid) && angular.isDefined($attrs.item);
                 if (isComplexItem || isLetterAvatar) {
                     innerElement.addClass("item-content");
                     if (angular.isDefined($attrs.href) || angular.isDefined($attrs.ngHref)) {
@@ -177,7 +178,11 @@
                     }
                     if (isLetterAvatar) {
                         $element.addClass("item-avatar-left");
-                        innerElement.prepend('<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img" ng-click="select($event)"/>');
+                        var avatarElement = '<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img"/>';
+                        if (selectionEnabled) {
+                            avatarElement += 'ng-click="select($event)"';
+                        }
+                        innerElement.prepend(avatarElement);
                     }
                 } else {
                     $element.addClass("item");
@@ -207,7 +212,6 @@
                     }
 
                     if (isLetterAvatar) {
-                        var selectionEnabled = ($ionicLetterAvatarSelectorConfig.isIos || $ionicLetterAvatarSelectorConfig.isAndroid) && angular.isDefined($attrs.item);
                         var gesture = $ionicGesture.on("hold", onHold, $element);
                         var imgDefault = svg(false, $attrs.lettersOf, $attrs.letterNumber, $attrs.background, $attrs.color);
                         var imgChecked = selectionEnabled ? svg(true) : null;
