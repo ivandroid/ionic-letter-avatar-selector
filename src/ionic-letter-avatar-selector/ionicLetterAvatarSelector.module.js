@@ -178,10 +178,11 @@
                     }
                     if (isLetterAvatar) {
                         $element.addClass("item-avatar-left");
-                        var avatarElement = '<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img"/>';
+                        var avatarElement = '<img id="img" ng-src="{{src}}" class="ionic-letter-avatar-selector-animate-img"';
                         if (selectionEnabled) {
-                            avatarElement += 'ng-click="select($event)"';
+                            avatarElement += ' ng-click="select($event)"';
                         }
+                        avatarElement += '/>';
                         innerElement.prepend(avatarElement);
                     }
                 } else {
