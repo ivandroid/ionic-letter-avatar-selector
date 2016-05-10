@@ -63,7 +63,7 @@
                     viewCtrl.init();
                     var $headers = $document[0].body.querySelectorAll(".bar-header");
                     var $title = angular.element($document[0].body.querySelectorAll(".title"));
-                    var defaultTitle;
+                    var defaultTitle, selectedItems;
                     
                     if (!ionicLetterAvatarSelector.header) {
                         ionicLetterAvatarSelector.header = {
@@ -107,37 +107,28 @@
                     
                     $scope.$on($ionicLetterAvatarSelector.finished, renderFinished);
                     $scope.$on($ionicLetterAvatarSelector.started, renderStarted);
+                        
+                    $scope.$on("$stateChangeStart", function() {
+                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange) {
+                            selectedItems = $ionicLetterAvatarSelector.getData();
+                        }
+                        $ionicLetterAvatarSelector.finish();
+                    });
                     
-                    if ($ionicLetterAvatarSelectorConfig.finishOnStateChange) {
-                        $scope.$on("$stateChangeStart", $ionicLetterAvatarSelector.finish);
-                    } else {
-                        $scope.$on("$stateChangeStart", function($event, toState, toParams, fromState) {
-                            if ($ionicLetterAvatarSelector.active()) {
-                                if (fromState.name === ionicLetterAvatarSelector.selectionView) {
-                                    renderFinished();
-                                    $scope.$root.$broadcast($ionicLetterAvatarSelector.viewChanged, true);
-                                }
-                            }
-                        });
-                        $scope.$on("$ionicView.beforeEnter", function($event, data) {
-                            if ($ionicLetterAvatarSelector.active()) {
-                                if (data.stateName === ionicLetterAvatarSelector.selectionView) {
-                                    renderStarted();
-                                    $scope.$root.$broadcast($ionicLetterAvatarSelector.viewChanged, false);
-                                }
-                            }
-                        });
-                        $scope.$on("$ionicView.afterEnter", function($event, data) {
-                            if ($ionicLetterAvatarSelector.active()) {
-                                if (data.stateName === ionicLetterAvatarSelector.selectionView) {
-                                    $scope.$root.$broadcast($ionicLetterAvatarSelector.viewChanged, false);
-                                    setTimeout(function() {
-                                        $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
-                                    }, 10);
-                                }
-                            }
-                        });
-                    }
+                    $scope.$on("$ionicView.beforeEnter", function($event, data) {
+                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.selectionView && selectedItems) {
+                            $scope.$root.$broadcast($ionicLetterAvatarSelector.makeSelection, selectedItems);
+                            selectedItems = undefined;
+                        }
+                    });
+                    
+                    $scope.$on("$ionicView.afterEnter", function($event, data) {
+                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.selectionView && $ionicLetterAvatarSelector.active()) {
+                            setTimeout(function() {
+                                $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
+                            }, 10);
+                        }
+                    });
                 };
             };
             return $delegate;
@@ -260,8 +251,10 @@
 
                         function select($event) {
                             if (selectionEnabled) {
-                                $event.preventDefault();
-                                $event.stopPropagation();
+                                if ($event) {
+                                    $event.preventDefault();
+                                    $event.stopPropagation();
+                                }
                                 
                                 selected = $ionicLetterAvatarSelector.select($attrs.item);
                                 if (selected) {
@@ -360,6 +353,19 @@
                                 renderUnselected();
                             }
                         });
+                        
+                        $scope.$on($ionicLetterAvatarSelector.makeSelection, function($event, items) {
+                            var itemId;
+                            try {
+                                itemId = parseInt($attrs.item);
+                            } catch(e) {
+                                itemId = $attrs.item;
+                            }
+                            var index = items.indexOf(itemId);
+                            if (index !== -1) {
+                                select();
+                            }
+                        });
                     }
                 };
             };
@@ -429,7 +435,7 @@
                 replace: true,
                 template: '<button class="button button-icon {{icon}}"' +
                             'ng-class="{\'ionic-letter-avatar-selector-icon-smaller\': isAndroid}"' + 
-                            'ng-show="selectionActive && !viewChanged"' +
+                            'ng-show="selectionActive"' +
                           '</button>',
                 link: function($scope) {
                     $scope.isAndroid = $ionicLetterAvatarSelectorConfig.isAndroid;
@@ -437,10 +443,6 @@
                     
                     $scope.$on($ionicLetterAvatarSelector.stateChanged, function($event, selectionActive) {
                         $scope.selectionActive = selectionActive;
-                    });
-                    $scope.$on($ionicLetterAvatarSelector.viewChanged, function($event, viewChanged) {
-                        $scope.viewChanged = viewChanged;
-                        $scope.selectionActive = $ionicLetterAvatarSelector.active();
                     });
                 }
             };
@@ -457,7 +459,7 @@
                 replace: true,
                 template: '<button class="button button-icon {{icon}}"' +
                             'ng-class="{\'ionic-letter-avatar-selector-icon-smaller\': isAndroid}"' + 
-                            'ng-show="selectionActive && !viewChanged"' +
+                            'ng-show="selectionActive"' +
                             'ng-click="finish()">' +
                           '</button>',
                 link: function($scope) {
@@ -467,10 +469,6 @@
                     
                     $scope.$on($ionicLetterAvatarSelector.stateChanged, function($event, selectionActive) {
                         $scope.selectionActive = selectionActive;
-                    });
-                    $scope.$on($ionicLetterAvatarSelector.viewChanged, function($event, viewChanged) {
-                        $scope.viewChanged = viewChanged;
-                        $scope.selectionActive = $ionicLetterAvatarSelector.active();
                     });
                 }
             };
@@ -487,6 +485,7 @@
             self.started = "ionicLetterAvatarSelector.started";
             self.finished = "ionicLetterAvatarSelector.finished";
             self.stateChanged = "ionicLetterAvatarSelector.stateChanged";
+            self.makeSelection = "ionicLetterAvatarSelector.makeSelection";
             
             self.active = function() {
                 return data.length > 0;
