@@ -63,17 +63,13 @@
                     viewCtrl.init();
                     var $headers = $document[0].body.querySelectorAll(".bar-header");
                     var $title = angular.element($document[0].body.querySelectorAll(".title"));
-                    var defaultTitle, selectedItems;
+                    var defaultTitle;
                     
                     if (!ionicLetterAvatarSelector.header) {
                         ionicLetterAvatarSelector.header = {
                             background: $headers[0].style.background,
                             border: $headers[0].style.border
                         };
-                    }
-
-                    if (!ionicLetterAvatarSelector.selectionView) {
-                        ionicLetterAvatarSelector.selectionView = $state.current.name;
                     }
 
                     function renderHeader(background, border) {
@@ -98,6 +94,9 @@
                         if (!defaultTitle) {
                             defaultTitle = $ionicHistory.currentTitle();
                         }
+                        if (!ionicLetterAvatarSelector.stateName) {
+                            ionicLetterAvatarSelector.stateName = $state.current.name;
+                        }
                         $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
                         renderHeader($ionicLetterAvatarSelectorConfig.selectionColor, "none");
                         if ($ionicLetterAvatarSelectorConfig.isAndroid) {
@@ -108,22 +107,20 @@
                     $scope.$on($ionicLetterAvatarSelector.finished, renderFinished);
                     $scope.$on($ionicLetterAvatarSelector.started, renderStarted);
                         
-                    $scope.$on("$stateChangeStart", function() {
-                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange) {
-                            selectedItems = $ionicLetterAvatarSelector.getData();
+                    $scope.$on("$stateChangeStart", function($event, toState, toParams, fromState) {
+                        if (fromState.name === ionicLetterAvatarSelector.stateName && $ionicLetterAvatarSelector.active()) {
+                            $ionicLetterAvatarSelector.finish(true);
                         }
-                        $ionicLetterAvatarSelector.finish();
                     });
                     
                     $scope.$on("$ionicView.beforeEnter", function($event, data) {
-                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.selectionView && selectedItems) {
-                            $scope.$root.$broadcast($ionicLetterAvatarSelector.makeSelection, selectedItems);
-                            selectedItems = undefined;
+                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.stateName && $ionicLetterAvatarSelector.active()) {
+                            $scope.$root.$broadcast($ionicLetterAvatarSelector.makeSelection);
                         }
                     });
                     
                     $scope.$on("$ionicView.afterEnter", function($event, data) {
-                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.selectionView && $ionicLetterAvatarSelector.active()) {
+                        if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.stateName && $ionicLetterAvatarSelector.active()) {
                             setTimeout(function() {
                                 $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
                             }, 10);
@@ -256,7 +253,8 @@
                                     $event.stopPropagation();
                                 }
                                 
-                                selected = $ionicLetterAvatarSelector.select($attrs.item);
+                                selected = $ionicLetterAvatarSelector.select($attrs.item, angular.isUndefined($event));
+                                
                                 if (selected) {
                                     renderSelected();
                                 } else {
@@ -354,17 +352,8 @@
                             }
                         });
                         
-                        $scope.$on($ionicLetterAvatarSelector.makeSelection, function($event, items) {
-                            var itemId;
-                            try {
-                                itemId = parseInt($attrs.item);
-                            } catch(e) {
-                                itemId = $attrs.item;
-                            }
-                            var index = items.indexOf(itemId);
-                            if (index !== -1) {
-                                select();
-                            }
+                        $scope.$on($ionicLetterAvatarSelector.makeSelection, function() {
+                            select();
                         });
                     }
                 };
@@ -491,8 +480,8 @@
                 return data.length > 0;
             };
             
-            self.finish = function() {
-                if (data.length > 0) {
+            self.finish = function(viewChanged) {
+                if (data.length > 0 && !viewChanged) {
                     data = [];
                 }
                 $rootScope.$broadcast(self.finished);
@@ -515,17 +504,19 @@
                 return data;
             };
             
-            self.select = function(item) {
-                var lengthBefore = data.length;
+            self.select = function(item, restore) {
                 var index = data.indexOf(item);
-                if (index === -1) {
-                    data.push(item);
-                } else {
-                    data.splice(index, 1);
+                if (!restore) {
+                    var lengthBefore = data.length;
+                    if (index === -1) {
+                        data.push(item);
+                    } else {
+                        data.splice(index, 1);
+                    }
+                    var lengthAfter = data.length;
+                    started = lengthBefore === 0 && lengthAfter === 1;
                 }
-                var lengthAfter = data.length;
-                started = lengthBefore === 0 && lengthAfter === 1;
-                if (started) {
+                if (started || restore) {
                     $rootScope.$broadcast(self.started);
                     $rootScope.$broadcast(self.stateChanged, true);
                 }
