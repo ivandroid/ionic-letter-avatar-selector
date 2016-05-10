@@ -37,26 +37,123 @@
         });
 
     angular.module("ionicLetterAvatarSelector.decorators", [])
+        .decorator("ionViewDirective", [
+            "$delegate", 
+            "$document", 
+            "$ionicHistory",
+            "$ionicLetterAvatarSelector",
+            "$ionicLetterAvatarSelectorConfig",
+            "$ionicNavBarDelegate",
+            "$state",
+            "ionicLetterAvatarSelector",
+            function(
+            $delegate, 
+            $document, 
+            $ionicHistory,
+            $ionicLetterAvatarSelector,
+            $ionicLetterAvatarSelectorConfig,
+            $ionicNavBarDelegate,
+            $state,
+            ionicLetterAvatarSelector) {
+            var directive = $delegate[0];
+            directive.compile = function (tElement) {
+                tElement.addClass("pane");
+                tElement[0].removeAttribute("title");
+                return function ($scope, $element, $attrs, viewCtrl) {
+                    viewCtrl.init();
+                    var $headers = $document[0].body.querySelectorAll(".bar-header");
+                    var $title = angular.element($document[0].body.querySelectorAll(".title"));
+                    var defaultTitle;
+                    
+                    if (!ionicLetterAvatarSelector.header) {
+                        ionicLetterAvatarSelector.header = {
+                            background: $headers[0].style.background,
+                            border: $headers[0].style.border
+                        };
+                    }
+
+                    if (!ionicLetterAvatarSelector.selectionView) {
+                        ionicLetterAvatarSelector.selectionView = $state.current.name;
+                    }
+
+                    function renderHeader(background, border) {
+                        for (var i in $headers) {
+                            var header = $headers[i];
+                            if (header.style) {
+                                header.style.background = background;
+                                header.style.border = border;
+                            }
+                        }
+                    }
+
+                    function renderFinished() {
+                        $ionicNavBarDelegate.title(defaultTitle);
+                        renderHeader(ionicLetterAvatarSelector.header.background, ionicLetterAvatarSelector.header.border);
+                        if ($ionicLetterAvatarSelectorConfig.isAndroid) {
+                            $title.css("margin-left", "10px");
+                        } 
+                    }
+                    
+                    function renderStarted() {
+                        if (!defaultTitle) {
+                            defaultTitle = $ionicHistory.currentTitle();
+                        }
+                        $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
+                        renderHeader($ionicLetterAvatarSelectorConfig.selectionColor, "none");
+                        if ($ionicLetterAvatarSelectorConfig.isAndroid) {
+                            $title.css("margin-left", "30px");
+                        } 
+                    }
+                    
+                    $scope.$on($ionicLetterAvatarSelector.finished, renderFinished);
+                    $scope.$on($ionicLetterAvatarSelector.started, renderStarted);
+                    
+                    if ($ionicLetterAvatarSelectorConfig.finishOnStateChange) {
+                        $scope.$on("$stateChangeStart", $ionicLetterAvatarSelector.finish);
+                    } else {
+                        $scope.$on("$stateChangeStart", function($event, toState, toParams, fromState) {
+                            if ($ionicLetterAvatarSelector.active()) {
+                                if (fromState.name === ionicLetterAvatarSelector.selectionView) {
+                                    renderFinished();
+                                    $scope.$root.$broadcast($ionicLetterAvatarSelector.viewChanged, true);
+                                }
+                            }
+                        });
+                        $scope.$on("$ionicView.beforeEnter", function($event, data) {
+                            if ($ionicLetterAvatarSelector.active()) {
+                                if (data.stateName === ionicLetterAvatarSelector.selectionView) {
+                                    renderStarted();
+                                    $scope.$root.$broadcast($ionicLetterAvatarSelector.viewChanged, false);
+                                }
+                            }
+                        });
+                        $scope.$on("$ionicView.afterEnter", function($event, data) {
+                            if ($ionicLetterAvatarSelector.active()) {
+                                if (data.stateName === ionicLetterAvatarSelector.selectionView) {
+                                    $scope.$root.$broadcast($ionicLetterAvatarSelector.viewChanged, false);
+                                    setTimeout(function() {
+                                        $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
+                                    }, 10);
+                                }
+                            }
+                        });
+                    }
+                };
+            };
+            return $delegate;
+        }])
         .decorator("ionItemDirective", [
             "$delegate", 
-            "$document",
             "$ionicGesture",
-            "$ionicHistory", 
-            "$ionicNavBarDelegate", 
             "$ionicLetterAvatarSelector", 
             "$ionicLetterAvatarSelectorConfig",
-            "$state" ,  
-            "ionicLetterAvatarSelector",
+            "$ionicNavBarDelegate",
             "IONIC_LETTER_AVATAR_SELECTOR_THEMES", function(
             $delegate, 
-            $document,
             $ionicGesture,
-            $ionicHistory,
-            $ionicNavBarDelegate, 
             $ionicLetterAvatarSelector, 
             $ionicLetterAvatarSelectorConfig, 
-            $state, 
-            ionicLetterAvatarSelector,
+            $ionicNavBarDelegate,
             IONIC_LETTER_AVATAR_SELECTOR_THEMES) {
                 
             var directive = $delegate[0];
@@ -114,27 +211,17 @@
                         var gesture = $ionicGesture.on("hold", onHold, $element);
                         var imgDefault = svg(false, $attrs.lettersOf, $attrs.letterNumber, $attrs.background, $attrs.color);
                         var imgChecked = selectionEnabled ? svg(true) : null;
-                        var selected, title;
+                        var selected;
                         
-                        var $headers = $document[0].body.querySelectorAll(".bar-header");
                         var $img = angular.element($element[0].querySelector("#img"));
-                        var $title = angular.element($document[0].body.querySelectorAll(".title"));
                         
                         renderBorder();
-                        
-                        if (!ionicLetterAvatarSelector.header) {
-                            ionicLetterAvatarSelector.header = {
-                                background: $headers[0].style.background,
-                                border: $headers[0].style.border
-                            };
-                        }
-                        
-                        if (!ionicLetterAvatarSelector.selectionView) {
-                            ionicLetterAvatarSelector.selectionView = $state.current.name;
-                        }
-                        
-                        if (!$ionicLetterAvatarSelector.active()) {
-                            title = $ionicHistory.currentTitle();
+                    
+                        function renderBorder(border) {
+                            if (!border) {
+                                border = $attrs.border || $ionicLetterAvatarSelectorConfig.border;
+                            }
+                            $img.css("border", border);
                         }
                         
                         function generateColor() {
@@ -152,43 +239,11 @@
                             });
                         }
                         
-                        function renderBorder(border) {
-                            if (!border) {
-                                border = $attrs.border || $ionicLetterAvatarSelectorConfig.border;
-                            }
-                            $img.css("border", border);
-                        }
-                        
-                        function renderHeader(background, border) {
-                            for (var i in $headers) {
-                                var header = $headers[i];
-                                if (header.style) {
-                                    header.style.background = background;
-                                    header.style.border = border;
-                                }
-                            }
-                        }
-
-                        function renderFinished() {
-                            $ionicNavBarDelegate.title(title);
-                            renderHeader(ionicLetterAvatarSelector.header.background, ionicLetterAvatarSelector.header.border);
-                            if ($ionicLetterAvatarSelectorConfig.isAndroid) {
-                                $title.css("margin-left", "10px");
-                            } 
-                        }
-                        
                         function renderSelected() {
                             $element.addClass("active");
                             $img.addClass("ng-hide-add");
                             $scope.src = imgChecked;
                             renderBorder("none");
-                        }
-                        
-                        function renderStarted() {
-                            renderHeader($ionicLetterAvatarSelectorConfig.selectionColor, "none");
-                            if ($ionicLetterAvatarSelectorConfig.isAndroid) {
-                                $title.css("margin-left", "30px");
-                            } 
                         }
                         
                         function renderUnselected() {
@@ -209,8 +264,9 @@
                                 } else {
                                     renderUnselected();
                                 }
-                                if ($ionicLetterAvatarSelector.active()) {
-                                    $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
+                                var selectionNumber = $ionicLetterAvatarSelector.count();
+                                if (selectionNumber > 0) {
+                                    $ionicNavBarDelegate.title(selectionNumber);
                                 }
                             }
                         }
@@ -287,40 +343,18 @@
                             var lvcomponent = angular.element("<div>").append(svg.clone()).html();
                             return "data:image/svg+xml;base64," + window.btoa(unescape(encodeURIComponent(lvcomponent)));
                         };
-                        
                         $scope.src = imgDefault;
                         $scope.select = select;
+                        
+                        $scope.$on('$destroy', function() {
+                            $ionicGesture.off(gesture, "hold", onHold);
+                        });
+                        
                         $scope.$on($ionicLetterAvatarSelector.finished, function() {
-                            renderFinished();
                             if (selected) {
                                 renderUnselected();
                             }
                         });
-                        $scope.$on($ionicLetterAvatarSelector.started, renderStarted);
-                        $scope.$on('$destroy', function() {
-                            $ionicGesture.off(gesture, "hold", onHold);
-                        });
-                        if ($ionicLetterAvatarSelectorConfig.finishOnStateChange) {
-                            $scope.$on("$stateChangeStart", $ionicLetterAvatarSelector.finish);
-                        } else {
-                            $scope.$on("$stateChangeStart", function($event, toState, toParams, fromState) {
-                                if ($ionicLetterAvatarSelector.active()) {
-                                    if (fromState.name === ionicLetterAvatarSelector.selectionView) {
-                                        renderFinished();
-                                    }
-                                }
-                            });
-                            $scope.$on("$stateChangeSuccess", function($event, toState) {
-                                if ($ionicLetterAvatarSelector.active()) {
-                                    if (toState.name === ionicLetterAvatarSelector.selectionView) {
-                                        renderStarted();
-                                        setTimeout(function() {
-                                            $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
-                                        }, 600);
-                                    }
-                                }
-                            });
-                        }
                     }
                 };
             };
@@ -381,11 +415,9 @@
         .directive("ilasButtonDelete", [
             "$ionicLetterAvatarSelector",
             "$ionicLetterAvatarSelectorConfig",
-            "ionicLetterAvatarSelector",
             "IONIC_LETTER_AVATAR_SELECTOR_ICONS", function(
             $ionicLetterAvatarSelector,
             $ionicLetterAvatarSelectorConfig,
-            ionicLetterAvatarSelector,
             IONIC_LETTER_AVATAR_SELECTOR_ICONS) {
             return {
                 restrict: "E",
@@ -401,11 +433,9 @@
                     $scope.$on($ionicLetterAvatarSelector.stateChanged, function($event, selectionActive) {
                         $scope.selectionActive = selectionActive;
                     });
-                    $scope.$on("$stateChangeSuccess", function($event, toState, toParams, fromState) {
-                        if ($ionicLetterAvatarSelector.active()) {
-                            $scope.viewChanged = fromState.name === ionicLetterAvatarSelector.selectionView;
-                            $scope.selectionActive = true;
-                        }
+                    $scope.$on($ionicLetterAvatarSelector.viewChanged, function($event, viewChanged) {
+                        $scope.viewChanged = viewChanged;
+                        $scope.selectionActive = $ionicLetterAvatarSelector.active();
                     });
                 }
             };
@@ -413,11 +443,9 @@
         .directive("ilasButtonFinish", [
             "$ionicLetterAvatarSelector",
             "$ionicLetterAvatarSelectorConfig",
-            "ionicLetterAvatarSelector",
             "IONIC_LETTER_AVATAR_SELECTOR_ICONS", function(
             $ionicLetterAvatarSelector, 
             $ionicLetterAvatarSelectorConfig,
-            ionicLetterAvatarSelector,
             IONIC_LETTER_AVATAR_SELECTOR_ICONS) {
             return {
                 restrict: "E",
@@ -435,10 +463,9 @@
                     $scope.$on($ionicLetterAvatarSelector.stateChanged, function($event, selectionActive) {
                         $scope.selectionActive = selectionActive;
                     });
-                    $scope.$on("$stateChangeSuccess", function($event, toState, toParams, fromState) {
-                        if ($ionicLetterAvatarSelector.active()) {
-                            $scope.viewChanged = fromState.name === ionicLetterAvatarSelector.selectionView;
-                        }
+                    $scope.$on($ionicLetterAvatarSelector.viewChanged, function($event, viewChanged) {
+                        $scope.viewChanged = viewChanged;
+                        $scope.selectionActive = $ionicLetterAvatarSelector.active();
                     });
                 }
             };
