@@ -115,14 +115,9 @@
                             }
                         });
 
-                        $scope.$on("$ionicView.beforeEnter", function($event, data) {
-                            if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.stateName && $ionicLetterAvatarSelector.active()) {
-                                $scope.$root.$broadcast($ionicLetterAvatarSelector.makeSelection);
-                            }
-                        });
-
                         $scope.$on("$ionicView.afterEnter", function($event, data) {
                             if (!$ionicLetterAvatarSelectorConfig.finishOnStateChange && data.stateName === ionicLetterAvatarSelector.stateName && $ionicLetterAvatarSelector.active()) {
+                                $scope.$root.$broadcast($ionicLetterAvatarSelector.makeSelection);
                                 setTimeout(function() {
                                     $ionicNavBarDelegate.title($ionicLetterAvatarSelector.count());
                                 }, 10);
