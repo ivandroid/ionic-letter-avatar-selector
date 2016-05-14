@@ -43,7 +43,7 @@ gulp.task('build', function() {
 });
 
 gulp.task('sass', function(done) {
-    gulp.src('./dist/ionic-letter-avatar-selector.scss')
+    gulp.src('./src/ionic-letter-avatar-selector/ionic-letter-avatar-selector.scss')
         .pipe(sass())
         .on('error', sass.logError)
         .pipe(gulp.dest('./dist/'))
