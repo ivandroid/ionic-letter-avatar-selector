@@ -1,13 +1,13 @@
 {
   "name": "ionic-letter-avatar-selector",
   "homepage": "https://github.com/ivandroid/ionic-letter-avatar-selector",
-  "version": "1.0.3",
   "authors": [
     {
       "name": "Ivan Weber",
       "email": "ivan.weber@gmx.de"
     }
   ],
+  "license": "MIT",
   "main": [
     "dist/ionic-letter-avatar-selector.min.js",
     "dist/ionic-letter-avatar-selector.min.css"
@@ -26,5 +26,15 @@
     "angular-mocks": ">=1.2.0",
     "angular-scenario": ">=1.2.0",
     "angular": ">=1.2.0"
-  }
+  },
+  "version": "1.0.3",
+  "_release": "1.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.3",
+    "commit": "ca722afa1866c3e8e138ea19fb76336f8035742c"
+  },
+  "_source": "https://github.com/ivandroid/ionic-letter-avatar-selector",
+  "_target": "~1.0.3",
+  "_originalSource": "ionicLetterAvatarSelector.module.js"
 }
