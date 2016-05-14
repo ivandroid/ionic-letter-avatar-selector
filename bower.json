@@ -1,6 +1,7 @@
 {
   "name": "ionic-letter-avatar-selector",
-  "version": "1.2.0",
+  "homepage": "https://github.com/ivandroid/ionic-letter-avatar-selector",
+  "version": "1.0.3",
   "authors": [
     {
       "name": "Ivan Weber",
