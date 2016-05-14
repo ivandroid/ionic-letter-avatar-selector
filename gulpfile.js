@@ -10,14 +10,6 @@ var plumber = require('gulp-plumber');
 var runSequence = require('run-sequence');
 var jshint = require('gulp-jshint');
 
-/**
- * File patterns
- **/
-
-// Test project directory
-var testProjectDirectory1 = '/home/ivan/NetBeansProjects/com.successful.bablo/www';
-var testProjectDirectory2 = '/home/ivan/Dropbox/Arbeit/ionic-letter-avatar-selector/example/www';
-
 // Root directory
 var rootDirectory = path.resolve('./');
 
@@ -47,21 +39,19 @@ gulp.task('build', function() {
         .pipe(gulp.dest('./dist/'))
         .pipe(uglify())
         .pipe(rename('ionic-letter-avatar-selector.min.js'))
-        .pipe(gulp.dest('./dist'))
-        .pipe(gulp.dest(testProjectDirectory1 + '/lib/own'))
-        .pipe(gulp.dest(testProjectDirectory2 + '/lib/other'));
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('sass', function(done) {
-    gulp.src('./style/scss/ionic-letter-avatar-selector.scss')
+    gulp.src('./dist/ionic-letter-avatar-selector.scss')
         .pipe(sass())
         .on('error', sass.logError)
-        .pipe(gulp.dest('./style/css/'))
+        .pipe(gulp.dest('./dist/'))
         .pipe(minifyCss({
             keepSpecialComments: 0
         }))
         .pipe(rename({extname: '.min.css'}))
-        .pipe(gulp.dest('./style/css/'))
+        .pipe(gulp.dest('./dist/'))
         .on('end', done);
 });
 
