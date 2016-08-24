@@ -1,14 +1,3 @@
-/*!
- * Copyright 2016 Ivan Weber
- *
- * ionic-letter-avatar-selector, v1.0.3
- *
- * By @ivandroid
- *
- * Licensed under the MIT license. Please see LICENSE for more information.
- *
- */
-
 /* global ionic */
 
 (function (angular) {
