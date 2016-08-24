@@ -286,7 +286,7 @@
                                     avatar = "";
                                     for (var i = 0; i < parts.length; i++) {
                                         var part = parts[i];
-                                        if (part.match(/\w/g) && avatar.length < 2) {
+                                        if (part.length > 1 && avatar.length < 2) {
                                             avatar += part.substr(0, 1).toUpperCase();
                                         }
                                     }

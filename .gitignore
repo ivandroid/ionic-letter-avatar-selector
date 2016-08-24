@@ -16,3 +16,4 @@ libpeerconnection.log
 
 # Bower components
 bower
+/nbproject/private/
